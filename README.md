@@ -10,7 +10,9 @@
 - open your browser and enter "localhost:4000"
 
 ### Outlook Sample
+---
 ![](/public/images/sample.png)
+---
 ![](/public/images/s1.png)
 ![](/public/images/s2.png)
 ![](/public/images/s3.png)
