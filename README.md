@@ -10,6 +10,6 @@ run "node app.js" in terminal
 
 open your browser and enter "localhost:4000"
 
-upload file -> enter"![](/images/filename)"
+upload file -> use markdown
 
-![alt tag](/images/sample.png)
+![](/public/images/sample.png)
