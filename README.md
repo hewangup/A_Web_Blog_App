@@ -1,16 +1,17 @@
-#Web Blog App
+Web Blog App
 ======
-- mongodb version: 2.6.1
-- nodejs version: 4.4.4
-- express version: 4.13.4
+- Mongodb version: 2.6.1
+- Nodejs version: 4.4.4
+- Express version: 4.13.4
 
-##How it work:
+How it work:
 ------
-- open mongo database
-- run "node app.js" in terminal
-- open your browser and enter "localhost:4000"
+- Open mongo database and connect to the blog
+- Run "node app.js" in terminal
+- Open your browser and enter "localhost:4000"
 
-##Outlook Sample:
+Outlook Sample:
+------
 
 ![](/public/images/s0.png)
 ---
