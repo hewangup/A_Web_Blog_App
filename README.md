@@ -7,6 +7,7 @@ Web Blog App
 How it work:
 ------
 - Open mongo database and connect to the blog
+- Run "npm install" to install dependencies
 - Run "node app.js" in terminal
 - Open your browser and enter "localhost:4000"
 
