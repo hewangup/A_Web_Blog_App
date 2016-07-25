@@ -29,6 +29,8 @@ Outlook Sample:
 ---
 ![](/public/images/s6.png)
 ---
+![](/public/images/s6.5.png)
+---
 ![](/public/images/s7.png)
 ---
 ![](/public/images/s8.png)
