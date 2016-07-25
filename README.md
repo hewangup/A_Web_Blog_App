@@ -1,18 +1,20 @@
-Web Blog App
-======
+# Web Blog App
+
 - Node.js: v4.4.4
 - Express: v4.13.4
 - MongoDB: v2.6.1
 - Bootstrap: v3.3.6
-How does it work:
-------
-- Have Node.js, Express and MongoDB installed.
+
+## Install
+- Have Node.js, Express and MongoDB installed
 ```
 $ git clone https://github.com/hewangup/A_Web_Blog_App
 $ cd A_Web_Blog_App
-$ npm install // install dependencies
-$ mkdir database // to store data
+$ npm install 
+$ mkdir database 
 ```
+
+## Usage
 - Navigate to the directory in which you placed your MongoDB files(let's say /Users/Desktop for now), and then into the "bin" directory. From that directory, type the following:
 ```
 $ mongod --dbpath Users/Desktop/A_Web_Blog_App/database/
@@ -21,10 +23,9 @@ $ mongod --dbpath Users/Desktop/A_Web_Blog_App/database/
 ```
 $ node app.js
 ```
-- Open your browser and go to "https://localhost:4000", you'll see the web blog app is running.
+- Open your browser and go to "https://localhost:4000", you'll see the web blog app is running
 
-What does it look like:
-------
+## Examples
 
 ![](/public/images/s0.png)
 ---
