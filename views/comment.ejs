@@ -1,20 +1,43 @@
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <br />
 <% post.comments.forEach(function (comment, index) { %>
+  <div class="container">
   <p><a href="<%= comment.website %>"><%= comment.name %></a>
   <span class="info"> reply at <%= comment.time %></span></p>
   <p><%- comment.content %></p>
+</div>
 <% }) %>
 
+
 <form method="post" action="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+  <div class="container">
 <% if (user) { %>
-  username：<input type="text" name="name" value="<%= user.name %>" /><br />
-  email：<input type="text" name="email" value="<%= user.email %>" /><br />
-  url：<input type="text" name="website" value="/u/<%= user.name %>" /><br />
+  <p>
+  <label>username:</label>
+  <input class="w3-input w3-border w3-round" name="name" type="text" value="<%= user.name %>"></p>
+  <p>
+  <label>email:</label>
+  <input class="w3-input w3-border w3-round" name="email" type="text" value="<%= user.email %>"></p>
+  <p>
+  <label>website:</label>
+  <input class="w3-input w3-border w3-round" name="website" type="text" value="/u/<%= user.name %>"></p>
 <% } else { %>
-  username：<input type="text" name="name" /><br />
-  email：<input type="text" name="email" /><br />
-  url：<input type="text" name="website" value="http://" /><br />
+  <p>
+  <label>username:</label>
+  <input class="w3-input w3-border w3-round" name="name" type="text" ></p>
+  <p>
+  <label>email:</label>
+  <input class="w3-input w3-border w3-round" name="email" type="text"></p>
+  <p>
+  <label>website:</label>
+  <input class="w3-input w3-border w3-round" name="website" type="text"></p>
 <% } %>
-  <textarea name="content" rows="5" cols="80"></textarea><br />
-  <input type="submit" value="Reply" />
+<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" cols="80" name="content"></textarea>
+</div>
+
+  <br />
+  <input type="submit" class="btn btn-primary btn-md" value="Reply" />
+  </div>
 </form>

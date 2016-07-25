@@ -1,8 +1,9 @@
 <%- include header %>
+<div class="container">
 <p>
   <% if (user && (user.name == post.name)) { %>
-    <span><a class="edit" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Edit</a></span>
-    <span><a class="edit" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Delete</a></span>
+    <span><a class="btn btn-primary btn-md" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Edit</a></span>
+    <span><a class="btn btn-primary btn-md" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Delete</a></span>
   <% } %>
 </p>
 <p class="info">
@@ -11,4 +12,5 @@
 </p>
 <p><%- post.post %></p>
 <%- include comment %>
+</div>
 <%- include footer %>

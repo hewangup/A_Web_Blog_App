@@ -1,7 +1,30 @@
-<%- include header %>
-<form method="post">
-  username：<input type="text" name="name"/><br />
-  password：  <input type="password" name="password"/><br />
-         <input type="submit" value="Login"/>
-</form>
-<%- include footer %>
+<!DOCTYPE html>
+<html>
+  <%- include header %>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/signin.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <form method="post" class="form-signin">
+        <h2 class="form-signin-heading">Sign in</h2>
+        <label for="name" class="sr-only">Username</label>
+        <input type="text" name="name" class="form-control" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div> <!-- /container -->
+  </body>
+  <%- include footer %>
+</html>

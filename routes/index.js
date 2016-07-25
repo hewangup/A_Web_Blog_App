@@ -18,14 +18,18 @@ var upload = multer({
 
 module.exports = function(app) {
   app.get('/', function (req, res) {
-    Post.getAll(null, function (err, posts) {
+    var page = parseInt(req.query.p) || 1;
+    Post.getTen(null, page, function (err, posts, total) {
       if (err) {
         posts = [];
       }
       res.render('index', {
-        title: 'BLOG',
-        user: req.session.user,
+        title: 'Blog',
         posts: posts,
+        page: page,
+        isFirstPage: (page - 1) == 0,
+        isLastPage: ((page - 1) * 10 + posts.length) == total,
+        user: req.session.user,
         success: req.flash('success').toString(),
         error: req.flash('error').toString()
       });
@@ -35,7 +39,7 @@ module.exports = function(app) {
   app.get('/reg', checkNotLogin);
   app.get('/reg', function (req, res) {
     res.render('reg', {
-      title: 'Sign Up',
+      title: '',
       user: req.session.user,
       success: req.flash('success').toString(),
       error: req.flash('error').toString()
@@ -82,7 +86,7 @@ module.exports = function(app) {
   app.get('/login', checkNotLogin);
   app.get('/login', function (req, res) {
     res.render('login', {
-      title: 'Login',
+      title: '',
       user: req.session.user,
       success: req.flash('success').toString(),
       error: req.flash('error').toString()
@@ -111,7 +115,7 @@ module.exports = function(app) {
   app.get('/post', checkLogin);
   app.get('/post', function (req, res) {
     res.render('post', {
-      title: 'New Blog',
+      title: 'New Post',
       user: req.session.user,
       success: req.flash('success').toString(),
       error: req.flash('error').toString()
@@ -132,10 +136,10 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/logout', checkLogin);
-  app.get('/logout', function (req, res) {
+  app.get('/signout', checkLogin);
+  app.get('/signout', function (req, res) {
     req.session.user = null;
-    req.flash('success', 'successful logout!');
+    req.flash('success', 'successful sign out!');
     res.redirect('/');
   });
 
@@ -155,13 +159,46 @@ module.exports = function(app) {
     res.redirect('/upload');
   });
 
-  app.get('/u/:name', function (req, res) {
-    User.get(req.params.name, function (err, user) {
-      if (!user) {
-        req.flash('error', 'user does not exist');
+  app.get('/archive', function (req, res) {
+    Post.getArchive(function (err, posts) {
+      if (err) {
+        req.flash('error', err);
         return res.redirect('/');
       }
-      Post.getAll(user.name, function (err, posts) {
+      res.render('archive', {
+        title: 'Archive',
+        posts: posts,
+        user: req.session.user,
+        success: req.flash('success').toString(),
+        error: req.flash('error').toString()
+      });
+    });
+  });
+
+  app.get('/search', function (req, res) {
+    Post.search(req.query.keyword, function (err, posts) {
+      if (err) {
+        req.flash('error', err);
+        return res.redirect('/');
+      }
+      res.render('search', {
+        title: "Search:" + req.query.keyword,
+        posts: posts,
+        user: req.session.user,
+        success: req.flash('success').toString(),
+        error: req.flash('error').toString()
+      });
+    });
+  });
+
+  app.get('/u/:name', function (req, res) {
+    var page = parseInt(req.query.p) || 1;
+    User.get(req.params.name, function (err, user) {
+      if (!user) {
+        req.flash('error', 'user does not exist!');
+        return res.redirect('/');
+      }
+      Post.getTen(user.name, page, function (err, posts, total) {
         if (err) {
           req.flash('error', err);
           return res.redirect('/');
@@ -169,9 +206,12 @@ module.exports = function(app) {
         res.render('user', {
           title: user.name,
           posts: posts,
-          user : req.session.user,
-          success : req.flash('success').toString(),
-          error : req.flash('error').toString()
+          page: page,
+          isFirstPage: (page - 1) == 0,
+          isLastPage: ((page - 1) * 10 + posts.length) == total,
+          user: req.session.user,
+          success: req.flash('success').toString(),
+          error: req.flash('error').toString()
         });
       });
     });

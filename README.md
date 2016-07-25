@@ -1,8 +1,9 @@
 Web Blog App
 ======
-- Mongodb version: 2.6.1
 - Nodejs version: 4.4.4
 - Express version: 4.13.4
+- Mongodb version: 2.6.1
+- Bootstrap version: 3.3.6
 
 How it work:
 ------
@@ -21,6 +22,10 @@ Outlook Sample:
 ![](/public/images/s2.png)
 ---
 ![](/public/images/s3.png)
+---
+![](/public/images/s4.png)
+---
+![](/public/images/s5.png)
 ---
 ![](/public/images/s6.png)
 ---

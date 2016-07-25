@@ -1,9 +1,15 @@
 <%- include header %>
+<div class="container">
 <form method="post">
-  Title：<br />
-  <input type="text" name="title" /><br />
-  Content：<br />
-  <textarea name="post" rows="20" cols="100"></textarea><br />
-  <input type="submit" value="Submit" />
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <textarea class="form-control" rows="1" cols="100" name="title"></textarea>
+  </div><br />
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea class="form-control" rows="20" cols="100" name="post"></textarea>
+  </div><br />
+  <input type="submit" class="btn btn-primary btn-md" value="Submit" />
 </form>
+</div>
 <%- include footer %>
