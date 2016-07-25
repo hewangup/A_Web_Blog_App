@@ -6,7 +6,7 @@
 - Bootstrap: v3.3.6
 
 ## Install
-- Have Node.js, Express and MongoDB installed
+- Have Node.js, Express and MongoDB installed.
 ```
 $ git clone https://github.com/hewangup/A_Web_Blog_App
 $ cd A_Web_Blog_App
@@ -19,11 +19,11 @@ $ mkdir database
 ```
 $ mongod --dbpath Users/Desktop/A_Web_Blog_App/database/
 ```
-- Mongo server has started and says "waiting for connections on port 27017". Open another terminal and navigate into the A_Web_Blog_App directory, type the following:
+- Mongo server has started and says "waiting for connections on port 27017". Open another terminal and navigate into A_Web_Blog_App directory, type the following:
 ```
 $ node app.js
 ```
-- Open your browser and go to "https://localhost:4000", you'll see the web blog app is running
+- Open your browser and go to "https://localhost:4000", you'll see the web blog app is running.
 
 ## Examples
 
