@@ -1,18 +1,30 @@
 Web Blog App
 ======
-- Nodejs version: 4.4.4
-- Express version: 4.13.4
-- Mongodb version: 2.6.1
-- Bootstrap version: 3.3.6
+- Node.js: v4.4.4
+- Express: v4.13.4
+- MongoDB: v2.6.1
+- Bootstrap: v3.3.6
 
-How it work:
+How does it work:
+- Have Node.js, Express and MongoDB installed.
+```
+$ git clone https://github.com/hewangup/A_Web_Blog_App
+$ cd A_Web_Blog_App
+$ npm install // install dependencies
+$ mkdir database // to store data
+```
+- Navigate to the directory in which you placed your MongoDB files(let's say /Users/Desktop for now), and then into the "bin" directory. From that directory, type the following:
+```
+$ mongod --dbpath Users/Desktop/A_Web_Blog_App/database/
+```
+- Mongo server has started and says "waiting for connections on port 27017". Open another terminal and navigate into the A_Web_Blog_App directory, type the following:
+```
+$ node app.js
+```
+- Open your browser and go to "https://localhost:4000", you'll see the web blog app is running.
 ------
-- Open mongo database and connect to the blog
-- Run "npm install" to install dependencies
-- Run "node app.js" in terminal
-- Open your browser and enter "localhost:4000"
 
-Outlook Sample:
+What does it look like:
 ------
 
 ![](/public/images/s0.png)
@@ -42,4 +54,4 @@ Outlook Sample:
 ![](/public/images/s11.png)
 
 
-#####notice: Upload File -> use markdown syntax
+#####Notice: Upload File -> Please use markdown syntax.
