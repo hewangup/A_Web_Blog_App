@@ -4,8 +4,8 @@ Web Blog App
 - Express: v4.13.4
 - MongoDB: v2.6.1
 - Bootstrap: v3.3.6
-
 How does it work:
+------
 - Have Node.js, Express and MongoDB installed.
 ```
 $ git clone https://github.com/hewangup/A_Web_Blog_App
@@ -22,7 +22,6 @@ $ mongod --dbpath Users/Desktop/A_Web_Blog_App/database/
 $ node app.js
 ```
 - Open your browser and go to "https://localhost:4000", you'll see the web blog app is running.
-------
 
 What does it look like:
 ------
