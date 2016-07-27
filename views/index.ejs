@@ -1,16 +1,36 @@
-
-
 <%- include header %>
 <% posts.forEach(function (post, index) { %>
   <div class="container">
-  <div class="jumbotron">
-  <p><h2><a  href="u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2></p>
-  <p class="info">
-    Author：<a href="u/<%= post.name %>"><%= post.name %></a> |
-    Date：<%= post.time.minute %>
-  </p>
-  <p><%- post.post %></p>
-  </div>
+    <div class="jumbotron">
+        <p><h2><a href="u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2></p>
+
+        <p class="info">
+          Author: <a href="/u/<%= post.name %>"><font color=#3366BB><%= post.name %></font></a> |
+          Date: <%= post.time.minute %> |
+
+          <% if (post.pv > 1) { %>
+            Views: <%= post.pv %> |
+          <% } else { %>
+            View: <%= post.pv %> |
+          <% } %>
+
+          <% if (post.comments.length > 1) { %>
+            Comments: <%= post.comments.length %> |
+          <% } else { %>
+            Comment: <%= post.comments.length %> |
+          <% } %>
+          Tag:
+          <% post.tags.forEach(function (tag, index) { %>
+            <% if (tag) { %>
+              <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+            <% } %>
+          <% }) %>
+        </p>
+
+        <p><%- post.post %></p>
+
+
+    </div>
   </div>
   <% }) %>
 <%- include paging %>

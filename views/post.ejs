@@ -4,12 +4,20 @@
   <div class="form-group">
     <label for="title">Title:</label>
     <textarea class="form-control" rows="1" cols="100" name="title"></textarea>
-  </div><br />
+  </div>
+  <div class="form-group">
+    <label for="title">Tags:</label>
+    <div class="form-inline">
+      <textarea class="form-control" rows="1"  name="tag1" placeholder="Tag1"></textarea>
+      <textarea class="form-control" rows="1"  name="tag2" placeholder="Tag2"></textarea>
+      <textarea class="form-control" rows="1"  name="tag3" placeholder="Tag3"></textarea><br />
+    </div>
+  </div>
   <div class="form-group">
     <label for="content">Content:</label>
     <textarea class="form-control" rows="20" cols="100" name="post"></textarea>
   </div><br />
-  <input type="submit" class="btn btn-primary btn-md" value="Submit" />
+  <input type="submit" class="btn btn-primary btn-md" value="Publish" />
 </form>
 </div>
 <%- include footer %>

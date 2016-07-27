@@ -1,41 +1,49 @@
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
 <br />
 <% post.comments.forEach(function (comment, index) { %>
   <div class="container">
-  <p><a href="<%= comment.website %>"><%= comment.name %></a>
-  <span class="info"> reply at <%= comment.time %></span></p>
-  <p><%- comment.content %></p>
-</div>
+      <div class="panel panel-default">
+        <div class="panel panel-heading">
+          <a href="<%= comment.website %>"><font color=#3366BB><%= comment.name %></font></a>
+          <span class="info"> reply at <%= comment.time %></span>
+        </div>
+        <div class="panel panel-body">
+          <%- comment.content %>
+        </div>
+      </div>
+  </div>
 <% }) %>
-
 
 <form method="post" action="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
   <div class="container">
-<% if (user) { %>
-  <p>
-  <label>username:</label>
-  <input class="w3-input w3-border w3-round" name="name" type="text" value="<%= user.name %>"></p>
-  <p>
-  <label>email:</label>
-  <input class="w3-input w3-border w3-round" name="email" type="text" value="<%= user.email %>"></p>
-  <p>
-  <label>website:</label>
-  <input class="w3-input w3-border w3-round" name="website" type="text" value="/u/<%= user.name %>"></p>
-<% } else { %>
-  <p>
-  <label>username:</label>
-  <input class="w3-input w3-border w3-round" name="name" type="text" ></p>
-  <p>
-  <label>email:</label>
-  <input class="w3-input w3-border w3-round" name="email" type="text"></p>
-  <p>
-  <label>website:</label>
-  <input class="w3-input w3-border w3-round" name="website" type="text"></p>
-<% } %>
-<div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" cols="80" name="content"></textarea>
-</div>
+    <div class="form-group">
+      <% if (user) { %>
+        <div class="form-inline">
+          <label>Username:</label>
+          <input class="form-control" name="name" type="text" value="<%= user.name %>">
+
+          <label>Email:</label>
+          <input class="form-control" name="email" type="text" value="<%= user.email %>">
+
+          <label>Website:</label>
+          <input class="form-control" name="website" type="text" value="/u/<%= user.name %>">
+        </div>
+      <% } else { %>
+        <div class="form-inline">
+          <label>Username:</label>
+          <input class="form-control" name="name" type="text" >
+
+          <label>Email:</label>
+          <input class="form-control" name="email" type="text">
+
+          <label>Website:</label>
+          <input class="form-control" name="website" type="text">
+        </div>
+      <% } %>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" cols="80" name="content" placeholder="Comment"></textarea>
+      </div>
 
   <br />
   <input type="submit" class="btn btn-primary btn-md" value="Reply" />

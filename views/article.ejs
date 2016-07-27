@@ -1,16 +1,42 @@
 <%- include header %>
 <div class="container">
-<p>
-  <% if (user && (user.name == post.name)) { %>
-    <span><a class="btn btn-primary btn-md" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Edit</a></span>
-    <span><a class="btn btn-primary btn-md" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Delete</a></span>
-  <% } %>
-</p>
-<p class="info">
-  Author：<a href="/u/<%= post.name %>"><%= post.name %></a> |
-  Date ：<%= post.time.minute %>
-</p>
-<p><%- post.post %></p>
-<%- include comment %>
+  <div class="jumbotron">
+
+      <p class="info">
+        Author: <a href="/u/<%= post.name %>"><font color=#3366BB><%= post.name %></font></a> |
+        Date: <%= post.time.minute %> |
+
+        <% if (post.pv > 1) { %>
+          Views: <%= post.pv + 1%> |
+        <% } else { %>
+          View: <%= post.pv + 1%> |
+        <% } %>
+
+        <% if (post.comments.length > 1) { %>
+          Comments: <%= post.comments.length %> |
+        <% } else { %>
+          Comment: <%= post.comments.length %> |
+        <% } %>
+
+        Tag:
+        <% post.tags.forEach(function (tag, index) { %>
+          <% if (tag) { %>
+            <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+          <% } %>
+        <% }) %>
+      </p>
+
+      <p><%- post.post %></p>
+
+
+  </div>
+  <p>
+    <% if (user && (user.name == post.name)) { %>
+      <span><a class="btn btn-success btn-md" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Edit</a></span>
+      <span><a class="btn btn-warning btn-md" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">Delete</a></span>
+    <% } %>
+  </p>
+
 </div>
+<%- include comment %>
 <%- include footer %>
